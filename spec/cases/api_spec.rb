@@ -197,6 +197,16 @@ describe LinkedIn::Api do
       response.code.should == "201"
     end
 
+    it "should be able to get a company's followers" do
+      stub_request(:get, "https://api.linkedin.com/v1/companies/id=1586/num-followers").to_return(:body => "{}")
+      client.company_followers(:id => 1586).should be_an_instance_of(LinkedIn::Mash)
+    end
+
+    it "should be able to get a specific company update" do
+      stub_request(:get, "https://api.linkedin.com/v1/companies/id=1586/updates/key=company_update_key").to_return(:body => "{}")
+      client.company_specific_update("company_update_key", :id => 1586).should be_an_instance_of(LinkedIn::Mash)
+    end
+
   end
 
   context "Job API", :vcr do
