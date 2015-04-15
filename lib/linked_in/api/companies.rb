@@ -45,15 +45,6 @@ module LinkedIn
         simple_query(path, options)
       end
 
-      # Get a company's followers, by segment
-      #
-      # @see https://developer.linkedin.com/docs/company-pages#get_followers
-
-      def company_followers(options={})
-        path = "#{company_path(options)}/num-followers"
-        simple_query(path, options)
-      end
-
       # Get a specific company update
       #
       # @see https://developer.linkedin.com/docs/company-pages#get_update
